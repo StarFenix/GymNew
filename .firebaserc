@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "mygym-a222b": {
+      "hosting": {
+        "GymNew": [
+          "mygym-a222b"
+        ]
+      }
+    }
+  }
+}
