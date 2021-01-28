@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,11 +9,16 @@ import firebase from 'firebase/app';
 })
 export class AppComponent {
   title = 'GymNew';
-
+  usuario!: firebase.User;
+  cargando: boolean = true;
   constructor(public auth: AngularFireAuth){
+    
     this.auth.user.subscribe((usuario)=>{
-      console.log(usuario)
-    })
+      setTimeout(()=>{
+        this.cargando = false;
+        this.usuario = usuario!;
+      },2000);
+   })
   }
   login() {
     this.auth.signInWithEmailAndPassword("starfenix66@gmail.com", "123456789")
