@@ -5,6 +5,8 @@
   <button (click)="logout()" class="btn btn-warning">Logout</button>
 </div>
 <ng-template #showLogin>
-  <div *ngIf="cargando">Cargando...</div>
+  <div *ngIf="cargando" class="text-center">
+    <div class="lds-hourglass"></div>
+  </div>
   <app-login *ngIf="!cargando"></app-login>
 </ng-template>

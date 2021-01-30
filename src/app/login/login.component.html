@@ -24,4 +24,9 @@
     <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
         {{textoError}}
     </div>
+    <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" 
+    size = "large" color = "#d9f018" 
+    type = "pacman" [fullScreen] = "true">
+      <p style="color: rgb(42, 111, 201)" > Loading... </p>
+    </ngx-spinner>
 </div>

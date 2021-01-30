@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent implements OnInit {
   formularioLogin!: FormGroup;
   datosCorrectos: boolean = true;
   textoError: string = '';
-  constructor(public creadorFormulario: FormBuilder, public auth: AngularFireAuth) { }
+  constructor(public creadorFormulario: FormBuilder, public auth: AngularFireAuth, private spinner: NgxSpinnerService) { }
 
   ngOnInit(): void {
     this.formulario();
@@ -28,11 +29,15 @@ export class LoginComponent implements OnInit {
   {
     if(this.formularioLogin.valid){
       this.datosCorrectos = true;
-      this.auth.signInWithEmailAndPassword(this.formularioLogin.value.email, this.formularioLogin.value.password).then((usuario)=>{
+      this.spinner.show();
+      this.auth.signInWithEmailAndPassword(this.formularioLogin.value.email, this.formularioLogin.value.password)
+      .then((usuario)=>{
         console.log(usuario)
+        this.spinner.hide();
       }).catch((error)=>{
         this.datosCorrectos = false;
         this.textoError = error.message;
+        this.spinner.hide();
       })
     }
     else{
