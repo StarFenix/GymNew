@@ -24,7 +24,7 @@
             Clientes
           </a>
           <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Ver Clientes</a>
+            <a class="dropdown-item" routerLink="listaClientes">Ver Clientes</a>
             <a class="dropdown-item" href="#">Nuevo Cliente</a>
           </div>
         </li>
@@ -53,6 +53,6 @@
               </div>
           </li>
       </ul>
-      
+      <button class="btn btn-danger" (click)="logout()">Salir</button>
     </div>
-  </nav>
+</nav>

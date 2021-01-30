@@ -20,10 +20,6 @@ export class AppComponent {
       },1000);
    })
   }
-  login() {
-    this.auth.signInWithEmailAndPassword("starfenix66@gmail.com", "123456789")
-  }
-  logout() {
-    this.auth.signOut();
-  }
+  
+  
 }

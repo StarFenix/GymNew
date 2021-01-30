@@ -8,15 +8,18 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from 'src/environments/environment';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { LoginComponent } from './login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ListadoClientesComponent } from './listado-clientes/listado-clientes.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    EncabezadoComponent
+    EncabezadoComponent,
+    ListadoClientesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,10 +29,12 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     NgxSpinnerModule,
     AngularFireModule.initializeApp(environment.firebase),
     ReactiveFormsModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(), 
+    FormsModule
   ],
   providers: [
-    AngularFireAuth
+    AngularFireAuth,
+    AngularFirestore 
   ],
   bootstrap: [AppComponent]
 })
