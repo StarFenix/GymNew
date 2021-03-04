@@ -1,7 +1,7 @@
-<div class="container">
+<div class="container form-signin">
     <div class="text-center">
-        <img src="assets/logo.jpg" alt="" class="img-fluid">
-        <h3>Bienvenido</h3>
+        <img src="assets/logo.png" alt="" class="img-fluid">
+        <h3>Ingrese por favor</h3>
     </div>
     <form [formGroup]=formularioLogin>
         <div class="mb-3">
@@ -19,11 +19,12 @@
               <span *ngIf="formularioLogin.controls['password'].errors?.required"> La contraseña es requerida</span>
           </div>
         </div>
-        <button type="submit" (click)="ingresar()" [disabled]="!formularioLogin.valid" class="btn btn-primary">Ingresar</button>
+        <button type="submit" (click)="ingresar()" [disabled]="!formularioLogin.valid" class="w-100 btn btn-lg btn-primary">Ingresar</button>
     </form>
     <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
         {{textoError}}
     </div>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; JSA 2021</p>
     <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" 
     size = "large" color = "#d9f018" 
     type = "pacman" [fullScreen] = "true">
