@@ -1,0 +1,49 @@
+<div class="container mt-5">
+    <h3>Nuevo Cliente</h3><br>
+    <form action="">
+        <div  class="row">
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">Nombre </label>
+                    <input type="text" class="form-control" placeholder="Nombre">  
+                </div>
+            </div>
+        
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="">Apellido </label>
+                    <input type="text" class="form-control" placeholder="Apellido">  
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Email </label>
+                    <input type="text" class="form-control" placeholder="example@mail.com">  
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Teléfono </label>
+                    <input type="tel" class="form-control" placeholder="00 0000 0000">  
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label for="">Fecha de Nacimiento </label>
+                    <input type="date" class="form-control" placeholder="Fecha de NAcimiento">  
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <div class="form-group">
+                    <label for="">Imagen</label>
+                    <input type="file" class="form-control-file" placeholder="Seleccione una imagen">  
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <progressbar [value]="22" type="warning" [striped]="true">22%</progressbar>
+                <br><br>
+                <button class="btn btn-primary">Agregar</button>
+            </div>              
+        </div>
+    </form>
+</div>

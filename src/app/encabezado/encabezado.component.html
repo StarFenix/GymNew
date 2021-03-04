@@ -7,49 +7,49 @@
     <div class="navbar-collapse" [ngClass]="{ 'collapse': isCollapse }">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item ">
-          <a class="nav-link" href="#">Inicio<span class="sr-only"></span></a>
+          <a class="nav-link" routerLink="/">Inicio<span class="sr-only"></span></a>
         </li>
         <li class="nav-item dropdown" dropdown>
-            <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Inscripciones
             </a>
             <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Ver Inscripciones</a>
-              <a class="dropdown-item" href="#">Nueva Inscripción</a>            
+              <a class="dropdown-item">Ver Inscripciones</a>
+              <a class="dropdown-item">Nueva Inscripción</a>            
             </div>
         </li>
         
         <li class="nav-item dropdown" dropdown>
-          <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Clientes
           </a>
           <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="listaClientes">Ver Clientes</a>
-            <a class="dropdown-item" href="#">Nuevo Cliente</a>
+            <a class="dropdown-item" routerLink="agregarCliente">Nuevo Cliente</a>
           </div>
         </li>
         
         <li class="nav-item dropdown" dropdown>
-            <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Precios
             </a>
             <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Agregar</a>
-              <a class="dropdown-item" href="#">Ver precios</a>
+              <a class="dropdown-item">Agregar</a>
+              <a class="dropdown-item">Ver precios</a>
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Usuarios<span class="sr-only"></span></a>
+            <a class="nav-link">Usuarios<span class="sr-only"></span></a>
           </li>
           <li class="nav-item dropdown" dropdown>
-              <a class="nav-link dropdown-toggle" dropdownToggle href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Reportes
               </a>
               <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Suscripciones Diarias</a>
-                <a class="dropdown-item" href="#">Suscripciones Mensuales</a>            
+                <a class="dropdown-item">Suscripciones Diarias</a>
+                <a class="dropdown-item">Suscripciones Mensuales</a>            
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Mas Vendidas</a>
+                <a class="dropdown-item">Mas Vendidas</a>
               </div>
           </li>
       </ul>
