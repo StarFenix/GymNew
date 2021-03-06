@@ -1,48 +1,63 @@
 <div class="container mt-5">
     <h3>Nuevo Cliente</h3><br>
-    <form action="">
+    <form action="" [formGroup]="formularioCliente">
         <div  class="row">
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="">Nombre </label>
-                    <input type="text" class="form-control" placeholder="Nombre">  
+                    <input type="text" formControlName="nombre" class="form-control" placeholder="Nombre">  
+                    <div *ngIf="formularioCliente.controls['nombre'].invalid && formularioCliente.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['nombre'].errors?.required">El nombre es requerido</span>
+                    </div> 
                 </div>
             </div>
         
             <div class="col-sm-6">
                 <div class="form-group">
                     <label for="">Apellido </label>
-                    <input type="text" class="form-control" placeholder="Apellido">  
+                    <input type="text" formControlName="apellido" class="form-control" placeholder="Apellido">  
+                    <div *ngIf="formularioCliente.controls['apellido'].invalid && formularioCliente.controls['apellido'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['apellido'].errors?.required">El apellido es requerido</span>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Email </label>
-                    <input type="text" class="form-control" placeholder="example@mail.com">  
-                </div>
+                    <input type="text" class="form-control" formControlName="email" placeholder="example@mail.com">  
+                    <div *ngIf="formularioCliente.controls['email'].invalid && formularioCliente.controls['email'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['email'].errors?.required">El email es requerido</span>
+                        <span *ngIf="formularioCliente.controls['email'].errors?.email">El email no es válido</span>
+                    </div> 
+                </div> 
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Teléfono </label>
-                    <input type="tel" class="form-control" placeholder="00 0000 0000">  
+                    <input type="tel" class="form-control" formControlName="telefono" placeholder="00 0000 0000">  
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="form-group">
                     <label for="">Fecha de Nacimiento </label>
-                    <input type="date" class="form-control" placeholder="Fecha de NAcimiento">  
+                    <input type="date" class="form-control" formControlName="fcNacimiento" placeholder="Fecha de NAcimiento">  
+                    <div *ngIf="formularioCliente.controls['fcNacimiento'].invalid && formularioCliente.controls['fcNacimiento'].dirty" class="alert alert-danger" role="alert">
+                        <span *ngIf="formularioCliente.controls['fcNacimiento'].errors?.required">Fecha de Nacimiento requerida</span>
+                    </div>
                 </div>
             </div>
+            
             <div class="col-sm-12">
                 <div class="form-group">
                     <label for="">Imagen</label>
-                    <input type="file" class="form-control-file" placeholder="Seleccione una imagen">  
+                    <input type="file" class="form-control-file" formControlName="img" placeholder="Seleccione una imagen">  
+                    
                 </div>
             </div>
             <div class="col-sm-12">
                 <progressbar [value]="22" type="warning" [striped]="true">22%</progressbar>
                 <br><br>
-                <button class="btn btn-primary">Agregar</button>
+                <button class="btn btn-primary" [disabled]="formularioCliente.invalid" (click)="agregar()">Agregar</button>
             </div>              
         </div>
     </form>
