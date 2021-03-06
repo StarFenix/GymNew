@@ -50,12 +50,12 @@
             <div class="col-sm-12">
                 <div class="form-group">
                     <label for="">Imagen</label>
-                    <input type="file" class="form-control-file" formControlName="img" placeholder="Seleccione una imagen">  
+                    <input type="file" (change)="subirImagen($event)" class="form-control-file" formControlName="img" placeholder="Seleccione una imagen">  
                     
                 </div>
             </div>
             <div class="col-sm-12">
-                <progressbar [value]="22" type="warning" [striped]="true">22%</progressbar>
+                <progressbar [value]="porcentajeSubida" type="success" [striped]="true">{{porcentajeSubida}}%</progressbar>
                 <br><br>
                 <button class="btn btn-primary" [disabled]="formularioCliente.invalid" (click)="agregar()">Agregar</button>
             </div>              
