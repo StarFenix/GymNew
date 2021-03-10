@@ -5,7 +5,8 @@ import { ListadoClientesComponent } from './listado-clientes/listado-clientes.co
 
 const routes: Routes = [
   {path: 'listaClientes', component: ListadoClientesComponent},
-  {path: 'agregarCliente', component: AgregarClienteComponent}
+  {path: 'agregarCliente', component: AgregarClienteComponent},
+  {path: 'agregarCliente/:clienteID', component: AgregarClienteComponent}
 
 ];
 

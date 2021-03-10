@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-agregar-cliente',
@@ -12,9 +13,15 @@ export class AgregarClienteComponent implements OnInit {
 formularioCliente!: FormGroup;
 porcentajeSubida: number = 0;
 urlImg: string = '';
-  constructor(private fb: FormBuilder, private storage: AngularFireStorage, private db: AngularFirestore) { }
+editable: boolean = false;
+id!: string;
+  constructor(private fb: FormBuilder, 
+    private storage: AngularFireStorage, 
+    private db: AngularFirestore,
+    private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    
     this.formularioCliente = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -25,6 +32,22 @@ urlImg: string = '';
       telefono: [''],
       img: ['', Validators.required]
     })
+    this.id = this.activeRoute.snapshot.params.clienteID
+    if(this.id != undefined){
+      this.editable = true;
+      this.db.doc<any>('clientes'+ '/' + this.id).valueChanges().subscribe((cliente)=>{
+        this.formularioCliente.setValue({
+          nombre: cliente.nombre,
+          apellido: cliente.apellido,
+          email: cliente.email,
+          fcNacimiento: new Date(cliente.fcNacimiento.seconds*1000).toISOString().substr(0,10),
+          telefono: cliente.telefono,
+          img: ''
+        })
+        this.urlImg = cliente.img;
+      })
+    }
+    
   }
 
   agregar(){
@@ -55,6 +78,18 @@ urlImg: string = '';
       })
     }
     
+  }
+
+  editar(){
+    this.formularioCliente.value.img = this.urlImg;
+    this.formularioCliente.value.fcNacimiento = new Date(this.formularioCliente.value.fcNacimiento);
+    this.formularioCliente.value
+
+    this.db.doc('clientes/'+ this.id).update(this.formularioCliente.value).then((resultado)=>{
+      console.log('Se editó correctamente')
+    }).catch(()=>{
+      console.log('Error!')
+    })
   }
 
 }
