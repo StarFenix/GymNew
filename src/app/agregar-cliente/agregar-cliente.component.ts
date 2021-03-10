@@ -3,7 +3,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-
+import Swal from 'sweetalert2'
+import { MensajesService } from '../services/mensajes.service';
 @Component({
   selector: 'app-agregar-cliente',
   templateUrl: './agregar-cliente.component.html',
@@ -18,7 +19,8 @@ id!: string;
   constructor(private fb: FormBuilder, 
     private storage: AngularFireStorage, 
     private db: AngularFirestore,
-    private activeRoute: ActivatedRoute) { }
+    private activeRoute: ActivatedRoute,
+    private msj: MensajesService) { }
 
   ngOnInit(): void {
     
@@ -55,7 +57,7 @@ id!: string;
     this.formularioCliente.value.fcNacimiento = new Date(this.formularioCliente.value.fcNacimiento)
     console.log(this.formularioCliente.value)
     this.db.collection('clientes').add(this.formularioCliente.value).then((termino)=>{
-      console.log('Creado')
+      this.msj.correcto('Agregado', 'Se agregó correctamente')
     })
   }
 
@@ -76,20 +78,18 @@ id!: string;
       tarea.percentageChanges().subscribe((porcentaje)=>{
         this.porcentajeSubida = parseInt(porcentaje!.toString())
       })
-    }
-    
+    }   
   }
 
   editar(){
     this.formularioCliente.value.img = this.urlImg;
     this.formularioCliente.value.fcNacimiento = new Date(this.formularioCliente.value.fcNacimiento);
-    this.formularioCliente.value
+    this.formularioCliente.value;
 
-    this.db.doc('clientes/'+ this.id).update(this.formularioCliente.value).then((resultado)=>{
-      console.log('Se editó correctamente')
+    this.db.doc('clientes/'+ this.id).update(this.formularioCliente.value).then(()=>{
+      this.msj.correcto('Editado', 'Se editó correctamente')
     }).catch(()=>{
-      console.log('Error!')
+      this.msj.error('UPS!', 'Ha ocurrido un error')
     })
   }
-
 }
