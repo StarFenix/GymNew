@@ -12,12 +12,13 @@
             <h4 class="my-0 fw-normal">{{precio.nombre}}</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">{{precio.costo | currency}} <small class="text-muted">MXN</small></h1>
+            <h1 class="card-title pricing-card-title">{{precio.costo | currency}}</h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>{{precio.duracion}}{{precio.tipoDuracion}}</li>
+              <li>{{precio.duracion}} {{precio.tipoDuracion}}</li>
               
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
+            <a (click)="editarPrecio(precio)" class="card-link text-success">Editar</a>
           </div>
         </div>
         </div>
@@ -107,15 +108,16 @@
                           <div class="form-group">
                               <label for="">Tipo</label>
                               <select formControlName="tipoDuracion" class="form-control" id="">
-                                  <option value="1">Día</option>
-                                  <option value="2">Semana</option>
-                                  <option value="3">Mes</option>
-                                  <option value="4">Año</option>
+                                  <option value="dia">Día</option>
+                                  <option value="semana">Semana</option>
+                                  <option value="mes">Mes</option>
+                                  <option value="año">Año</option>
                               </select>
                           </div>
                       </div>   
                       <div class="col-sm-3">
-                        <button class="btn btn-success" (click)="agregar()" [disabled]="formularioPrecio.invalid">Editar</button> 
+                        <button *ngIf="!esEditar" class="btn btn-success" (click)="agregar()" [disabled]="formularioPrecio.invalid">Agregar</button> 
+                        <button *ngIf="esEditar" class="btn btn-warning" (click)="editar()" [disabled]="formularioPrecio.invalid">Editar</button> 
                       </div>
                           
                   </div>
