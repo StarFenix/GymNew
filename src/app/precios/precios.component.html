@@ -6,24 +6,22 @@
       </div>
     
       <div class="row row-cols-1 row-cols-md-4 mb-4 text-center">
-        <div class="col">
+        <div class="col" *ngFor="let precio of precios">
           <div class="card mb-3 shadow-sm">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Free</h4>
+            <h4 class="my-0 fw-normal">{{precio.nombre}}</h4>
           </div>
           <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+            <h1 class="card-title pricing-card-title">{{precio.costo | currency}} <small class="text-muted">MXN</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
+              <li>{{precio.duracion}}{{precio.tipoDuracion}}</li>
+              
             </ul>
             <button type="button" class="w-100 btn btn-lg btn-outline-primary">Sign up for free</button>
           </div>
         </div>
         </div>
-        <div class="col">
+       <!--  <div class="col">
           <div class="card mb-3 shadow-sm">
           <div class="card-header">
             <h4 class="my-0 fw-normal">Pro</h4>
@@ -43,7 +41,7 @@
         <div class="col">
           <div class="card mb-3 shadow-sm">
           <div class="card-header">
-            <h4 class="my-0 fw-normal">Enterprise</h4>
+            <h4 class="my-0 fw-normal">Master</h4>
           </div>
           <div class="card-body">
             <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
@@ -60,7 +58,7 @@
         <div class="col">
             <div class="card mb-3 shadow-sm">
             <div class="card-header">
-              <h4 class="my-0 fw-normal">Enterprise</h4>
+              <h4 class="my-0 fw-normal">Spartan</h4>
             </div>
             <div class="card-body">
               <h1 class="card-title pricing-card-title">$29 <small class="text-muted">/ mo</small></h1>
@@ -73,7 +71,7 @@
               <button type="button" class="w-100 btn btn-lg btn-primary">Contact us</button>
             </div>
           </div>
-          </div>
+          </div> -->
       </div>
     
       <footer class="pt-4 my-md-5 pt-md-5 border-top">
@@ -85,30 +83,30 @@
         </div>
         <div class="col-sm-10">
             <div class="">
-                <form action="">
+                <form [formGroup]="formularioPrecio">
                     <div class="row">
                       <div class="col-sm-5 ">
                           <div class="form-group">
                           <label for="">Nombre</label>
-                          <input type="text" class="form-control" placeholder="Nombre">
+                          <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
                           </div>
                       </div>
                       <div class="col-sm-2 ">
                           <div class="form-group">
                               <label for="">Costo</label>
-                              <input type="number" class="form-control" placeholder="0.00">
+                              <input formControlName="costo" type="number" class="form-control" placeholder="0.00">
                           </div>
                       </div>
                       <div class="col-sm-2 ">
                           <div class="form-group">
                               <label for="">Duración</label>
-                              <input type="text" class="form-control" placeholder="Duración">
+                              <input formControlName="duracion" type="text" class="form-control" placeholder="Duración">
                           </div>
                       </div>
                       <div class="col-sm-3">
                           <div class="form-group">
                               <label for="">Tipo</label>
-                              <select class="form-control" id="">
+                              <select formControlName="tipoDuracion" class="form-control" id="">
                                   <option value="1">Día</option>
                                   <option value="2">Semana</option>
                                   <option value="3">Mes</option>
@@ -117,7 +115,7 @@
                           </div>
                       </div>   
                       <div class="col-sm-3">
-                        <button class="btn btn-success">Editar</button> 
+                        <button class="btn btn-success" (click)="agregar()" [disabled]="formularioPrecio.invalid">Editar</button> 
                       </div>
                           
                   </div>

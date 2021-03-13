@@ -58,6 +58,7 @@ id!: string;
     console.log(this.formularioCliente.value)
     this.db.collection('clientes').add(this.formularioCliente.value).then((termino)=>{
       this.msj.correcto('Agregado', 'Se agregó correctamente')
+      this.formularioCliente.reset()
     })
   }
 
@@ -88,7 +89,7 @@ id!: string;
 
     this.db.doc('clientes/'+ this.id).update(this.formularioCliente.value).then(()=>{
       this.msj.correcto('Editado', 'Se editó correctamente')
-    }).catch(()=>{
+      }).catch(()=>{
       this.msj.error('UPS!', 'Ha ocurrido un error')
     })
   }
