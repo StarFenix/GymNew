@@ -7,11 +7,12 @@
     <div class="navbar-collapse" [ngClass]="{ 'collapse': isCollapse }">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item ">
-          <a class="nav-link" routerLink="/">Inicio<span class="sr-only"></span></a>
+          <a class="nav-link" routerLink="/">
+            <i class="fa fa-home"></i> Inicio<span class="sr-only"></span></a>
         </li>
         <li class="nav-item dropdown" dropdown>
             <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Inscripciones
+              <i class="fa fa-files-o"></i>  Inscripciones
             </a>
             <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
               <a class="dropdown-item">Ver Inscripciones</a>
@@ -21,7 +22,7 @@
         
         <li class="nav-item dropdown" dropdown>
           <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Clientes
+            <i class="fa fa-users"></i>   Clientes
           </a>
           <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="listaClientes">Ver Clientes</a>
@@ -30,14 +31,11 @@
         </li>
         
         <li class="nav-item">
-          <a class="nav-link" routerLink="precios">Precios<span class="sr-only"></span></a>
+          <a class="nav-link" routerLink="precios"><i class="fa fa-usd"></i> Precios<span class="sr-only"></span></a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link">Usuarios<span class="sr-only"></span></a>
-          </li>
-          <li class="nav-item dropdown" dropdown>
+        <li class="nav-item dropdown" dropdown>
               <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Reportes
+                <i class="fa fa-file-text"></i>   Reportes
               </a>
               <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
                 <a class="dropdown-item">Suscripciones Diarias</a>
@@ -47,6 +45,6 @@
               </div>
           </li>
       </ul>
-      <button class="btn btn-danger" (click)="logout()">Salir</button>
+      <a class="card-link text-danger" (click)="logout()"><i class="fa fa-power-off"></i> Salir</a>
     </div>
 </nav>

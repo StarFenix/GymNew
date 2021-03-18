@@ -1,7 +1,7 @@
 <div class="container form-signin">
     <div class="text-center">
         <img src="assets/logo.png" alt="" class="img-fluid">
-        <h3>Ingrese por favor</h3>
+        <h3>Ingrese por favor</h3> <br><br>
     </div>
     <form [formGroup]=formularioLogin>
         <div class="mb-3">
@@ -24,7 +24,10 @@
     <div *ngIf="!datosCorrectos" class="alert alert-warning" role="alert">
         {{textoError}}
     </div>
-    <p class="mt-5 mb-3 text-muted text-center">&copy; JSA 2021</p>
+    <p class="mt-5 mb-3 text-muted text-center">&copy; JSA 2021 <br>
+     <a href="https://github.com/StarFenix" class="mt-5 mb-3 text-muted text-center"> <i class="fa fa-github-alt"></i> </a> 
+     <a href=""> </a> <i class="fa  fa-linkedin-square"></i>
+    </p>
     <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" 
     size = "large" color = "#d9f018" 
     type = "pacman" [fullScreen] = "true">

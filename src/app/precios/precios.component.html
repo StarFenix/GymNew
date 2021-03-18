@@ -17,8 +17,10 @@
               <li>{{precio.duracion}} {{precio.tipoDuracion}}</li>
               
             </ul>
-            <button type="button" class="w-100 btn btn-lg btn-outline-primary" >Sign up for free</button>
-            <a (click)="editarPrecio(precio)" class="card-link text-success">Editar</a>
+            <!-- <button type="button" class="w-100 btn btn-lg btn-outline-primary" >Sign up for free</button> -->
+            <div class="card-footer bg-transparent ">
+              <a (click)="editarPrecio(precio)" class="card-link text-success"><i class="fa fa-pencil"></i> </a>
+            </div>
           </div>
         </div>
         </div>
@@ -116,8 +118,8 @@
                           </div>
                       </div>   
                       <div class="col-sm-3">
-                        <button *ngIf="!esEditar" class="btn btn-success" (click)="agregar()" [disabled]="formularioPrecio.invalid">Agregar</button> 
-                        <button *ngIf="esEditar" class="btn btn-warning" (click)="editar()" [disabled]="formularioPrecio.invalid">Editar</button> 
+                        <button *ngIf="!esEditar" class="btn btn-success" (click)="agregar()" [disabled]="formularioPrecio.invalid"><i class="fa fa-check"></i> Agregar</button> 
+                        <button *ngIf="esEditar" class="btn btn-warning" (click)="editar()" [disabled]="formularioPrecio.invalid"><i class="fa fa-check"></i> Editar</button> 
                       </div>
                           
                   </div>
