@@ -33,7 +33,6 @@ export class ListadoClientesComponent implements OnInit {
       } */
     })
   }
-
   buscar(event: string){
     let nombreBuscar: string = event;
     this.clientes = this.clientes.filter(clientes=>{

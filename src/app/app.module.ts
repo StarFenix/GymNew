@@ -42,7 +42,8 @@ import { SeleccionarClienteComponent } from './seleccionar-cliente/seleccionar-c
     ReactiveFormsModule,
     BsDropdownModule.forRoot(), 
     ProgressbarModule.forRoot(),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    FormsModule
   ],
   providers: [
     AngularFireAuth,
