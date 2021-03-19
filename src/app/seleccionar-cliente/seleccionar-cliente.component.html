@@ -5,11 +5,11 @@
     <div class="form-group" *ngIf="nombre">
         <label for="">Cliente</label>
         <div class="row">
-            <div class="col-sm-10">
+            <div class="col-sm-8">
                 <input [(ngModel)]="nombre" disabled type="text" class="form-control">
             </div>
             <div class="col-sm-2">
-                <button class="btn btn-danger" (click)="cancelarCliente()">Cancelar</button>
+                <button class="btn btn-danger" (click)="cancelarCliente()"><i class="fa fa-times"></i></button>
             </div>
         </div>
         
