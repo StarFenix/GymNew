@@ -6,10 +6,26 @@
                 (seleccionoCliente)="asignarCliente($event)"
                 (canceloCliente)="eliminarCliente()">
             </app-seleccionar-cliente>
+            <div class="from-control ">
+                <div  class="row">
+                    <div class="col-sm-9">
+                        <label for="">Tipo</label>
+                        
+                    </div>
+                    <div class="col-sm-12">
+                        <select class="form-control" name="" id="">
+                            <option *ngFor="let precio of precios" value="">{{precio.tipoDuracion}}</option>
+                        </select>
+                    </div>
+                </div> <br>
             <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>
+            </div>        
         </div>
+    </div>
+
+    <div  class="row">
         <div class="col-sm-6">
-            h
+            hj
         </div>
     </div>
 </div>
