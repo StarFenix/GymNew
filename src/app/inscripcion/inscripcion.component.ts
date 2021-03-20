@@ -13,6 +13,7 @@ export class InscripcionComponent implements OnInit {
   inscripcion: Inscripcion = new Inscripcion();
   precios: Precio[] = new Array <Precio>();
   clienteSeleccionado: Cliente = new Cliente();
+  precioSeleccionado?: Precio = new Precio();
   constructor(private db: AngularFirestore) { }
 
   ngOnInit(): void {
@@ -35,5 +36,10 @@ export class InscripcionComponent implements OnInit {
   }
   guardar(){
     console.log(this.inscripcion)
+  }
+  seleccionarPrecio(id: string){
+    this.precioSeleccionado = this.precios.find(x=> x.id == id)
+    this.inscripcion.precios = this.precioSeleccionado!.ref
+    console.log(this.precioSeleccionado)
   }
 }

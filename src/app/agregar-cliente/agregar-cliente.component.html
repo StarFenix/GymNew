@@ -1,5 +1,6 @@
-<div class="container mt-5">
-    <h3>Nuevo Cliente</h3><br>
+<div class="container mt-4">
+    <h4 *ngIf="!editable">Nuevo Cliente</h4> <br>
+    <h4 *ngIf="editable">Editar Cliente</h4> <br>
     <form action="" [formGroup]="formularioCliente">
         <div  class="row">
             <div class="col-sm-6">

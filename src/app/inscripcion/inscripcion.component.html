@@ -1,4 +1,5 @@
 <div class="container mt-5">
+    <h4>Nueva Inscripción</h4> <br>
     <div class="row">
         <div class="col-sm-6">
             <app-seleccionar-cliente 
@@ -8,21 +9,22 @@
             </app-seleccionar-cliente>
             <div class="from-control ">
                 <div  class="row">
-                    <div class="col-sm-9">
-                        <label for="">Tipo</label>
-                        
+                    <div class="col-sm-6">
+                        <label for="">Tipo</label> 
+                        <select (change)="seleccionarPrecio($any($event.target).value)" class="form-control" name="" id="">
+                            <option [value]="null">Selecione un tipo</option>
+                            <option *ngFor="let precio of precios" [value]="precio.id">{{precio.tipoDuracion}}</option>
+                        </select>                       
                     </div>
-                    <div class="col-sm-12">
-                        <select class="form-control" name="" id="">
-                            <option *ngFor="let precio of precios" value="">{{precio.tipoDuracion}}</option>
-                        </select>
+                    <div class="col-sm-6">
+                        <label for="">Costo</label>                        
+                        <p>--</p>
                     </div>
                 </div> <br>
-            <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>
+                <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>
             </div>        
         </div>
     </div>
-
     <div  class="row">
         <div class="col-sm-6">
             hj
