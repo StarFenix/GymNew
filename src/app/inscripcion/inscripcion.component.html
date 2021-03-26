@@ -34,11 +34,11 @@
                 </div> <br>
                  <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>
             </div>        
-        </div>
-    </div>
-    <div  class="row">
+        </div> <br><br>
         <div class="col-sm-6">
-            hj
+            <div *ngIf="clienteSeleccionado.img">
+                <img [src]="clienteSeleccionado.img" class="imgCliente" alt="">
+            </div>
         </div>
     </div>
 </div>
