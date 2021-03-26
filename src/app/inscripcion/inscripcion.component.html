@@ -18,10 +18,21 @@
                     </div>
                     <div class="col-sm-6">
                         <label for="">Costo</label>                        
-                        <p>--</p>
+                        <input class="form-control" disabled type="text" [value]="inscripcion.subTotal">
                     </div>
                 </div> <br>
-                <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>
+
+                <div  class="row">
+                    <div class="col-sm-6">
+                        <label for="">Fecha de Inicio</label> 
+                        <input class="form-control" type="text" [value]="inscripcion.fecha | date" name="" id="" disabled>                     
+                    </div>
+                    <div class="col-sm-6">
+                        <label for="">Fecha Fin</label>                        
+                        <input class="form-control" [value]="inscripcion.fechaFinal | date" type="text" name="" id="" disabled>
+                    </div>
+                </div> <br>
+                 <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>
             </div>        
         </div>
     </div>

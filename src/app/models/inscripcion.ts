@@ -8,11 +8,11 @@ export class Inscripcion{
     subTotal!: number;
     total!: number;
     constructor(){
-        this.fecha = this.fecha;
+        this.fecha = null as any;
         this.fechaFinal = this.fecha;
         this.cliente = this.cliente;
         this.precios = this.precios;
-        this.subTotal = this.subTotal;
+        this.subTotal = null as any;
         this.total = this.total;
     }
 }

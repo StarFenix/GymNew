@@ -40,6 +40,39 @@ export class InscripcionComponent implements OnInit {
   seleccionarPrecio(id: string){
     this.precioSeleccionado = this.precios.find(x=> x.id == id)
     this.inscripcion.precios = this.precioSeleccionado!.ref
-    console.log(this.precioSeleccionado)
+    this.inscripcion.fecha = new Date()
+
+    if(this.precioSeleccionado?.tipoDuracion == "Día"){
+      let dias: number = this.precioSeleccionado.duracion;
+      let fechaFin =
+        new Date(this.inscripcion.fecha.getFullYear(), 
+                 this.inscripcion.fecha.getMonth(), 
+                 this.inscripcion.fecha.getDate() + dias)
+        this.inscripcion.fechaFinal = fechaFin;
+    }
+    if(this.precioSeleccionado?.tipoDuracion == "Semana"){
+      let dias: number = this.precioSeleccionado.duracion * 7;
+      let fechaFin =
+        new Date(this.inscripcion.fecha.getFullYear(), 
+                 this.inscripcion.fecha.getMonth(), 
+                 this.inscripcion.fecha.getDate() + dias)
+        this.inscripcion.fechaFinal = fechaFin;
+    }
+    if(this.precioSeleccionado?.tipoDuracion == "Mes"){
+      let meses = this.precioSeleccionado.duracion;
+      let fechaFin =
+        new Date(this.inscripcion.fecha.getFullYear(), 
+                 this.inscripcion.fecha.getMonth() + meses, 
+                 this.inscripcion.fecha.getDate())
+        this.inscripcion.fechaFinal = fechaFin;
+    }
+    if(this.precioSeleccionado?.tipoDuracion == "Año"){
+      let año: number = this.precioSeleccionado.duracion;
+      let fechaFin =
+        new Date(this.inscripcion.fecha.getFullYear() + año, 
+                 this.inscripcion.fecha.getMonth(), 
+                 this.inscripcion.fecha.getDate())
+        this.inscripcion.fechaFinal = fechaFin;
+    }
   }
 }
