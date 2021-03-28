@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Cliente } from '../models/cliente';
 import { Inscripcion } from '../models/inscripcion';
 import { Precio } from '../models/precio';
+import { MensajesService } from '../services/mensajes.service';
 
 @Component({
   selector: 'app-inscripcion',
@@ -14,7 +15,8 @@ export class InscripcionComponent implements OnInit {
   precios: Precio[] = new Array <Precio>();
   clienteSeleccionado: Cliente = new Cliente();
   precioSeleccionado?: Precio = new Precio();
-  constructor(private db: AngularFirestore) { }
+  idPrecio: string = 'null';
+  constructor(private db: AngularFirestore, private msg: MensajesService) { }
 
   ngOnInit(): void {
     this.db.collection('precios').get().subscribe((resultado)=>{
@@ -35,11 +37,23 @@ export class InscripcionComponent implements OnInit {
     this.inscripcion.cliente = undefined!;
   }
   guardar(){
-    console.log(this.inscripcion)
     if(this.inscripcion.validar().esValido){
-      console.log('Guardando')
+      let agregarInscripcion = {
+        fecha: this.inscripcion.fecha,
+        fechaFinal: this.inscripcion.fechaFinal,
+        cliente: this.inscripcion.cliente,
+        precios: this.inscripcion.precios,
+        total: this.inscripcion.total
+      }
+      this.db.collection('inscripciones').add(agregarInscripcion).then((resultado)=>{
+        this.inscripcion = new Inscripcion();
+        this.clienteSeleccionado = new Cliente();
+        this.precioSeleccionado = new Precio();
+        this.idPrecio = 'null'
+        this.msg.correcto('Guardado', 'Se guardó correctamente')
+      })
     }else{
-      console.log(this.inscripcion.validar().mensaje)
+      this.msg.advertencia('Advertencia', this.inscripcion.validar().mensaje)
     }
   }
   seleccionarPrecio(id: string){

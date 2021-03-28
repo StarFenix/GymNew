@@ -25,7 +25,7 @@ export class Inscripcion{
         }
         if(this.precios == null || this.precios == undefined){
             respuesta.esValido= false;
-            respuesta.mensaje = 'No ha seleccionado un tipo'
+            respuesta.mensaje = 'Seleccione el tipo de inscripción'
             return respuesta;
         }
         if(this.fecha == null || this.fecha == undefined){

@@ -12,7 +12,7 @@
             <div class="card">
                 <img class="card-img-top imgCliente" [src]="cliente.img" >
                 <div class="card-body">
-                  <!-- <p>{{ cliente.id }}</p> -->
+                  <p>{{ cliente.id }}</p>
                   <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}} </h5>
                   <a [routerLink]="['/agregarCliente', cliente.id]" class="card-link text-success"><i class="fa fa-pencil"></i> </a>
                   <a class="card-link text-danger"><i class="fa fa-times"></i> </a>
