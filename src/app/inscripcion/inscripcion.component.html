@@ -9,27 +9,27 @@
             </app-seleccionar-cliente>
             <div class="from-control ">
                 <div  class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-12">
                         <label for="">Tipo</label> 
                         <select (change)="seleccionarPrecio($any($event.target).value)" class="form-control" name="" id="">
-                            <option [value]="null">Selecione un tipo</option>
+                            <option [value]="null">Selecione un tipo de Inscripción</option>
                             <option *ngFor="let precio of precios" [value]="precio.id">{{precio.tipoDuracion}}</option>
                         </select>                       
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="">Costo</label>                        
-                        <input class="form-control" disabled type="text" [value]="inscripcion.subTotal">
                     </div>
                 </div> <br>
 
                 <div  class="row">
                     <div class="col-sm-6">
-                        <label for="">Fecha de Inicio</label> 
+                        <label for="">Inicio</label> 
                         <input class="form-control" type="text" [value]="inscripcion.fecha | date" name="" id="" disabled>                     
                     </div>
                     <div class="col-sm-6">
-                        <label for="">Fecha Fin</label>                        
+                        <label for="">Fin</label>                        
                         <input class="form-control" [value]="inscripcion.fechaFinal | date" type="text" name="" id="" disabled>
+                    </div>
+                    <div class="col-sm-12 from-control">
+                        <label for="">Total</label>                        
+                        <input class="form-control" disabled type="number" [value]="inscripcion.total">
                     </div>
                 </div> <br>
                  <button class="btn btn-info" (click)="guardar()"><i class="fa fa-floppy-o"></i> Guardar</button>

@@ -32,47 +32,62 @@ export class InscripcionComponent implements OnInit {
   }
   eliminarCliente(){
     this.clienteSeleccionado = new Cliente();
-    this.inscripcion.cliente === undefined;
+    this.inscripcion.cliente = undefined!;
   }
   guardar(){
     console.log(this.inscripcion)
+    if(this.inscripcion.validar().esValido){
+      console.log('Guardando')
+    }else{
+      console.log(this.inscripcion.validar().mensaje)
+    }
   }
   seleccionarPrecio(id: string){
-    this.precioSeleccionado = this.precios.find(x=> x.id == id)
-    this.inscripcion.precios = this.precioSeleccionado!.ref
-    this.inscripcion.fecha = new Date()
-
-    if(this.precioSeleccionado?.tipoDuracion == "Día"){
-      let dias: number = this.precioSeleccionado.duracion;
-      let fechaFin =
-        new Date(this.inscripcion.fecha.getFullYear(), 
-                 this.inscripcion.fecha.getMonth(), 
-                 this.inscripcion.fecha.getDate() + dias)
-        this.inscripcion.fechaFinal = fechaFin;
-    }
-    if(this.precioSeleccionado?.tipoDuracion == "Semana"){
-      let dias: number = this.precioSeleccionado.duracion * 7;
-      let fechaFin =
-        new Date(this.inscripcion.fecha.getFullYear(), 
-                 this.inscripcion.fecha.getMonth(), 
-                 this.inscripcion.fecha.getDate() + dias)
-        this.inscripcion.fechaFinal = fechaFin;
-    }
-    if(this.precioSeleccionado?.tipoDuracion == "Mes"){
-      let meses = this.precioSeleccionado.duracion;
-      let fechaFin =
-        new Date(this.inscripcion.fecha.getFullYear(), 
-                 this.inscripcion.fecha.getMonth() + meses, 
-                 this.inscripcion.fecha.getDate())
-        this.inscripcion.fechaFinal = fechaFin;
-    }
-    if(this.precioSeleccionado?.tipoDuracion == "Año"){
-      let año: number = this.precioSeleccionado.duracion;
-      let fechaFin =
-        new Date(this.inscripcion.fecha.getFullYear() + año, 
-                 this.inscripcion.fecha.getMonth(), 
-                 this.inscripcion.fecha.getDate())
-        this.inscripcion.fechaFinal = fechaFin;
+    if(id != "null"){
+      this.precioSeleccionado = this.precios.find(x=> x.id == id)
+      this.inscripcion.precios = this.precioSeleccionado!.ref
+      this.inscripcion.total = this.precioSeleccionado!.costo
+      this.inscripcion.fecha = new Date()
+  
+      if(this.precioSeleccionado?.tipoDuracion == "Día"){
+        let dias: number = this.precioSeleccionado.duracion;
+        let fechaFin =
+          new Date(this.inscripcion.fecha.getFullYear(), 
+                   this.inscripcion.fecha.getMonth(), 
+                   this.inscripcion.fecha.getDate() + dias)
+          this.inscripcion.fechaFinal = fechaFin;
+      }
+      if(this.precioSeleccionado?.tipoDuracion == "Semana"){
+        let dias: number = this.precioSeleccionado.duracion * 7;
+        let fechaFin =
+          new Date(this.inscripcion.fecha.getFullYear(), 
+                   this.inscripcion.fecha.getMonth(), 
+                   this.inscripcion.fecha.getDate() + dias)
+          this.inscripcion.fechaFinal = fechaFin;
+      }
+      if(this.precioSeleccionado?.tipoDuracion == "Mes"){
+        let meses = this.precioSeleccionado.duracion;
+        let fechaFin =
+          new Date(this.inscripcion.fecha.getFullYear(), 
+                   this.inscripcion.fecha.getMonth() + meses, 
+                   this.inscripcion.fecha.getDate())
+          this.inscripcion.fechaFinal = fechaFin;
+      }
+      if(this.precioSeleccionado?.tipoDuracion == "Año"){
+        let año: number = this.precioSeleccionado.duracion;
+        let fechaFin =
+          new Date(this.inscripcion.fecha.getFullYear() + año, 
+                   this.inscripcion.fecha.getMonth(), 
+                   this.inscripcion.fecha.getDate())
+          this.inscripcion.fechaFinal = fechaFin;
+      }
+    }else{
+      this.precioSeleccionado = new Precio();
+      this.inscripcion.precios = null!;
+      this.inscripcion.total = null!;
+      this.inscripcion.fecha = null!;
+      this.inscripcion.fechaFinal = null!;
+      this.inscripcion.total = 0;
     }
   }
 }
