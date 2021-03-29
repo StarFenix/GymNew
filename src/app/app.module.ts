@@ -21,6 +21,7 @@ import { MensajesService } from './services/mensajes.service';
 import { PreciosComponent } from './precios/precios.component';
 import { InscripcionComponent } from './inscripcion/inscripcion.component';
 import { SeleccionarClienteComponent } from './seleccionar-cliente/seleccionar-cliente.component';
+import { ListaInscripcionesComponent } from './lista-inscripciones/lista-inscripciones.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { SeleccionarClienteComponent } from './seleccionar-cliente/seleccionar-c
     AgregarClienteComponent,
     PreciosComponent,
     InscripcionComponent,
-    SeleccionarClienteComponent
+    SeleccionarClienteComponent,
+    ListaInscripcionesComponent
   ],
   imports: [
     BrowserModule,

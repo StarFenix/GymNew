@@ -15,8 +15,8 @@
               <i class="fa fa-files-o"></i>  Inscripciones
             </a>
             <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
-              <a class="dropdown-item">Ver Inscripciones</a>
-              <a class="dropdown-item" routerLink="/">Nueva Inscripción</a>            
+              <a class="dropdown-item" routerLink="verInscripciones">Ver Inscripciones</a>
+              <a class="dropdown-item" routerLink="inscripcion">Nueva Inscripción</a>            
             </div>
         </li>
         
@@ -33,18 +33,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="precios"><i class="fa fa-usd"></i> Precios<span class="sr-only"></span></a>
         </li>
-        <li class="nav-item dropdown" dropdown>
-              <a class="nav-link dropdown-toggle" dropdownToggle id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-file-text"></i>   Reportes
-              </a>
-              <div class="dropdown-menu" *dropdownMenu aria-labelledby="navbarDropdown">
-                <a class="dropdown-item">Suscripciones Diarias</a>
-                <a class="dropdown-item">Suscripciones Mensuales</a>            
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item">Mas Vendidas</a>
-              </div>
-          </li>
-      </ul>
+        </ul>
       <a class="card-link text-danger" (click)="logout()"><i class="fa fa-power-off"></i> Salir</a>
     </div>
 </nav>
