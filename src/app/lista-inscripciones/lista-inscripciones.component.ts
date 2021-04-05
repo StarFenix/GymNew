@@ -10,8 +10,7 @@ import { Inscripcion } from '../models/inscripcion';
 export class ListaInscripcionesComponent implements OnInit {
   inscripciones: any[] = [];
   constructor(private db: AngularFirestore) { }
-
-  ngOnInit(): void {
+   ngOnInit(): void {
     this.inscripciones.length = 0;
     this.db.collection('inscripciones').get().subscribe((resultado)=>{
       resultado.forEach((inscripcion: any)=>{

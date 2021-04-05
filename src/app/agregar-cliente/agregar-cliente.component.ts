@@ -90,7 +90,7 @@ id!: string;
     this.db.doc('clientes/'+ this.id).update(this.formularioCliente.value).then(()=>{
       this.msj.correcto('Editado', 'Se editó correctamente')
       }).catch(()=>{
-      this.msj.error('UPS!', 'Ha ocurrido un error')
-    })
+        this.msj.error('Ups', 'Ha ocurrido un error')
+      })
+    }
   }
-}

@@ -34,10 +34,14 @@ export class ListadoClientesComponent implements OnInit {
     })
   }
   buscar(event: string){
+    if(event != "null"){
     let nombreBuscar: string = event;
     this.clientes = this.clientes.filter(clientes=>{
       return clientes.nombre.toLowerCase().includes(nombreBuscar.toLowerCase())
     })
+  }else{
+    this.clientes = this.clientes
+  }
   }
 
 }

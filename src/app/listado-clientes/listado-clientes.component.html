@@ -2,7 +2,7 @@
     <h4>Clientes</h4> <br>
     <form class="form-inline">
         <div class="form-group">
-          <input type="" class="form-control" id="" placeholder="Buscar" (input)="buscar($any($event.target).value)">
+          <input type="" class="form-control" [value]="null" id="" placeholder="Buscar" (input)="buscar($any($event.target).value)">
         </div>
         <button type="submit" class="btn btn-success  mx-sm-3" routerLink="/agregarCliente"><i class="fa fa-user-plus"></i> Nuevo Cliente</button>
       </form>
@@ -14,8 +14,9 @@
                 <div class="card-body">
                   <p>{{ cliente.id }}</p>
                   <h5 class="card-title">{{cliente.nombre}} {{cliente.apellido}} </h5>
-                  <a [routerLink]="['/agregarCliente', cliente.id]" class="card-link text-success"><i class="fa fa-pencil"></i> </a>
-                  <a class="card-link text-danger"><i class="fa fa-times"></i> </a>
+                  <div class="card-footer bg-transparent  text-center">
+                  <a [routerLink]="['/agregarCliente', cliente.id]" class="card-link text-success"><i class="fa fa-pencil"></i> Editar</a>
+                </div>
                 </div>
             </div>
             <br> 
