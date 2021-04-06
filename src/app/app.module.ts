@@ -22,6 +22,7 @@ import { PreciosComponent } from './precios/precios.component';
 import { InscripcionComponent } from './inscripcion/inscripcion.component';
 import { SeleccionarClienteComponent } from './seleccionar-cliente/seleccionar-cliente.component';
 import { ListaInscripcionesComponent } from './lista-inscripciones/lista-inscripciones.component';
+import { NgxPaginationModule } from 'ngx-pagination'
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,8 @@ import { ListaInscripcionesComponent } from './lista-inscripciones/lista-inscrip
     BsDropdownModule.forRoot(), 
     ProgressbarModule.forRoot(),
     AngularFireStorageModule,
-    FormsModule
+    FormsModule,
+    NgxPaginationModule
   ],
   providers: [
     AngularFireAuth,

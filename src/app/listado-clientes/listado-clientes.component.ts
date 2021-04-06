@@ -8,6 +8,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 })
 export class ListadoClientesComponent implements OnInit {
   clientes: any[] = new Array<AngularFirestore>();
+  p: number = 1;
   constructor(private db: AngularFirestore ) { }
 
   ngOnInit(): void {

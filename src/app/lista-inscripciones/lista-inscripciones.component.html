@@ -10,7 +10,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let inscripcion of inscripciones">
+          <tr *ngFor="let inscripcion of inscripciones | paginate: {itemsPerPage: 10, currentPage: p}">
             <td>
               <img [src]="inscripcion.clienteObtenido.img" alt="" width="50px" height="45px">
             </td>
@@ -21,4 +21,5 @@
           
         </tbody>
       </table>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>

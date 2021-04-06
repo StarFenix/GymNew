@@ -8,7 +8,7 @@
       </form>
     <br>
     <div class="row">
-        <div class="col-sm-3" *ngFor="let cliente of clientes"> 
+        <div class="col-sm-3" *ngFor="let cliente of clientes | paginate: {itemsPerPage: 8, currentPage: p}"> 
             <div class="card">
                 <img class="card-img-top imgCliente" [src]="cliente.img" >
                 <div class="card-body">
@@ -21,5 +21,6 @@
             </div>
             <br> 
         </div>    
+        <pagination-controls (pageChange)="p = $event"></pagination-controls>
     </div>
   </div>
